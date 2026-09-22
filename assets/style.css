@@ -142,13 +142,14 @@ nav a:hover::after,nav a.active::after{transform:scaleX(1)}
 /* ---------- Split layout ---------- */
 .split{display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:center}
 .checklist{list-style:none;margin-top:26px}
-.checklist li{display:flex;gap:14px;padding:13px 0;font-weight:500;color:var(--ink-soft);font-size:.98rem}
-.checklist li::before{content:"";flex:0 0 6px;height:6px;border-radius:50%;background:var(--accent);margin-top:9px}
+.checklist li{position:relative;padding:13px 0 13px 26px;font-weight:500;color:var(--ink-soft);font-size:.98rem}
+.checklist li::before{content:"";position:absolute;left:0;top:22px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
 .panel{background:var(--navy);border-radius:var(--radius-lg);padding:40px;color:#fff}
 .panel .stat{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.1)}
 .panel .stat:last-child{border-bottom:none}
 .panel .stat b{color:var(--accent-2);font-size:1.1rem;text-align:right;font-family:'Manrope',sans-serif}
 .panel .stat span{color:#8b96ab;font-size:.85rem}
+.checklist li b{color:var(--ink)}
 
 /* ---------- Flow diagram (replaces text-box grids) ---------- */
 .flow{display:flex;align-items:flex-start;gap:0;margin-top:56px;position:relative}
@@ -218,11 +219,12 @@ footer li a:hover{color:#fff}
   footer .wrap{grid-template-columns:1fr}
   .value-strip{flex-direction:column;align-items:center;gap:20px}
   .value-strip .item{border-left:none;text-align:center;padding:0}
-  .flow{flex-direction:column;gap:28px}
-  .flow-step{padding:0;text-align:left;display:flex;gap:16px;align-items:flex-start}
-  .flow-step .dot{margin:0}
+  .flow{flex-direction:column;gap:20px}
+  .flow-step{padding:0;text-align:left;display:grid;grid-template-columns:44px 1fr;column-gap:16px;row-gap:3px;align-items:start}
   .flow-step .line{display:none}
-  .flow-step > div{flex:1}
+  .flow-step .dot{grid-column:1;grid-row:1 / span 2;margin:0;align-self:start}
+  .flow-step b{grid-column:2;align-self:center}
+  .flow-step span{grid-column:2}
   .brand-row{gap:26px}
 }
 
